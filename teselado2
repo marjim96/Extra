@@ -1,0 +1,40 @@
+void setup() {
+  size(800, 600);
+}
+void draw() {
+  background(#C92727);
+  textSize(30);
+  text("Presiona el mousse y mueve hacia los lados",90,300);
+  float w = 20/1.5;
+  fill(#6584D1);
+  for (int y=0; y<= height+w; y+=w) {
+  }
+
+  if (mousePressed) {
+    background(#C92727);
+    float x = 0;
+    float y = 0;
+
+    noStroke();
+    float lol = w*(abs(x-mouseX)/width*1+0.100);
+    float count = 0;
+    for (x=0; x<width; x+=lol) {
+      lol = w*(abs(x-mouseX)/width*1.4+0.100);
+      if (lol>w) {
+        lol=w;
+      }
+      if (count%2==0) {
+        for (y = 0; y<height; y+=w*2) {
+          fill(#6584D1);
+          rect(x, y, lol, w);
+        }
+      } else {
+        for (y = w; y<height; y+=w*2) {
+          fill(#6584D1);
+          rect(x, y, lol, w);
+        }
+      }
+      count ++;
+    }
+  }
+}
